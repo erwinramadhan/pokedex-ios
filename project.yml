@@ -1,0 +1,51 @@
+name: Pokedex
+options:
+  groupSortPosition: top
+  deploymentTarget:
+    iOS: "13.0"
+settings:
+  base:
+    PRODUCT_BUNDLE_IDENTIFIER: com.erwin.pokedex
+    CURRENT_PROJECT_VERSION: 1
+    SWIFT_VERSION: 5.0
+    ALWAYS_SEARCH_USER_PATHS: NO
+    ENABLE_BITCODE: NO
+    CODE_SIGN_STYLE: Manual
+    OTHER_SWIFT_FLAGS: "-Xfrontend -internalize-at-link"
+targets:
+  Pokedex:
+    type: application
+    platform: iOS
+    supportedDestinations: [iOS]
+    sources:
+      - Pokedex
+    resources:
+      - Pokedex/Resources
+    info:
+      path: Pokedex/Info.plist
+      properties:
+        CFBundleIdentifier: com.erwin.pokedex
+        CFBundleInfoDictionaryVersion: "6.0"
+        CFBundleExecutable: Pokedex
+        UIApplicationSceneManifest:
+          UIApplicationSupportsTabbedSceneCollection: NO
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication: [
+              { 
+                UISceneConfigurationName: Default Configuration,
+                UISceneDelegateClassName: Pokedex.SceneDelegate
+              }
+            ] 
+        UILaunchStoryboardName: LaunchScreen
+    buildSettings:
+      SWIFT_VERSION: 5.0
+      PRODUCT_BUNDLE_IDENTIFIER: com.erwin.pokedex
+      INFO_PLIST_FILE: Pokedex/Info.plist
+configurations:
+  Debug:
+    buildSettings:
+      ENABLE_TESTABILITY: YES
+      SWIFT_OPTIMIZATION_LEVEL: "-Onone"
+  Release:
+    buildSettings:
+      SWIFT_OPTIMIZATION_LEVEL: "-Owholemodule"

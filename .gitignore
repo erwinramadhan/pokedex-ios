@@ -1,0 +1,9 @@
+# Xcode
+build/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Other
+*.DS_Store
