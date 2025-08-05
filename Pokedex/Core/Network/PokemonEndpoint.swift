@@ -9,6 +9,8 @@ import Alamofire
 
 enum PokemonEndpoint: APIEndpoint {
     case list(limit: Int, offset: Int = 0)
+    case detail(id: Int)
+    case species(id: Int)
 
     var baseURL: String { "https://pokeapi.co/api/v2" }
 
@@ -16,6 +18,10 @@ enum PokemonEndpoint: APIEndpoint {
         switch self {
         case .list:
             return "/pokemon"
+        case .detail(let id):
+            return "/pokemon/\(id)"
+        case .species(let id):
+            return "/pokemon-species/\(id)"
         }
     }
 
@@ -25,6 +31,8 @@ enum PokemonEndpoint: APIEndpoint {
         switch self {
         case .list(let limit, let offset):
             return ["limit": limit, "offset": offset]
+        case .detail, .species:
+            return [:]
         }
     }
 

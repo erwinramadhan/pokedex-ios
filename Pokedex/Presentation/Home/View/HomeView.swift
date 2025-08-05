@@ -20,6 +20,9 @@ class HomeView: UIViewController {
     
     var viewModel: HomeViewModel!
     
+    // MARK: Navigation Callback Closure
+    var navigateToDetail: ((_ selectedPokemon: PokemonListItem) -> Void)?
+    
     private let disposeBag = DisposeBag()
     
     init(viewModel: HomeViewModel) {
@@ -74,16 +77,22 @@ class HomeView: UIViewController {
             .bind(to: tableView.rx.items(cellIdentifier: "PokemonCardCell", cellType: PokemonCardCell.self)) { row, element, cell in
                 cell.pokemonNameLabel?.text = element.name.capitalized
                 
+                let placeholderImage = UIImage(systemName: "photo")?
+                    .withRenderingMode(.alwaysTemplate)
+                    .withTintColor(.black, renderingMode: .alwaysOriginal)
+                
                 if let imageUrl = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(element.id).png") {
-                    cell.pokemonImageView.kf.setImage(with: imageUrl)
+                    cell.pokemonImageView.kf.setImage(
+                        with: imageUrl,
+                        placeholder: placeholderImage
+                    )
                 }
             }
             .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(PokemonListItem.self)
-            .subscribe(onNext: { selectedItem in
-                // MARK: TODO GOTO DETAIL
-                print("Selceted Item: \(selectedItem)")
+            .subscribe(onNext: { [weak self] selectedItem in
+                self?.navigateToDetail?(selectedItem)
             })
             .disposed(by: disposeBag)
         

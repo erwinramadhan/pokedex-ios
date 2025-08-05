@@ -20,4 +20,12 @@ final class DefaultPokemonRepository: PokemonRepository {
                 dto.results.map { $0.toDomain() }
             }
     }
+    
+    func fetchPokemonDetail(id: Int) -> Single<PokemonDetailResponseDTO> {
+        return apiService.fetchPokemonDetail(id: id)
+    }
+    
+    func fetchPokemonSpecies(id: Int) -> Single<PokemonSpeciesResponseDTO> {
+        return apiService.fetchPokemonSpecies(id: id)
+    }
 }

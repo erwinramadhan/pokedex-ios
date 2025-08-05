@@ -10,8 +10,8 @@ import XLPagerTabStrip
 class LandingPagerTabStrip: ButtonBarPagerTabStripViewController {
     
     var viewModel: LandingPagerTabStripViewModel!
-    weak var homeView: HomeView?
-    weak var profileView: ProfileView?
+    var homeView: HomeView?
+    var profileView: ProfileView?
     
     init(viewModel: LandingPagerTabStripViewModel, homeView: HomeView, profileView: ProfileView) {
         self.viewModel = viewModel

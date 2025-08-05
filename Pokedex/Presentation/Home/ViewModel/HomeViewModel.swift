@@ -10,7 +10,6 @@ import RxSwift
 import RxCocoa
 
 class HomeViewModel: AnyObject {
-    // MARK: - Output
     private let pokemons = BehaviorRelay<[PokemonListItem]>(value: [])
     private let isLoading = BehaviorRelay<Bool>(value: false)
     private let errorMessage = PublishRelay<String>()
@@ -20,16 +19,13 @@ class HomeViewModel: AnyObject {
     private let limit = 10
     private var hasMoreData = true
     
-    // publish <> behaviour
-    // subject <> relay
-    
     // MARK: - Dependencies
-    private let fetchUseCase: FetchPokemonListUseCase
+    private let fetchPokemonListUseCase: FetchPokemonListUseCase
     private let disposeBag = DisposeBag()
     
     // MARK: - Init
-    init(fetchUseCase: FetchPokemonListUseCase) {
-        self.fetchUseCase = fetchUseCase
+    init(fetchPokemonListUseCase: FetchPokemonListUseCase) {
+        self.fetchPokemonListUseCase = fetchPokemonListUseCase
     }
     
     
@@ -50,7 +46,7 @@ class HomeViewModel: AnyObject {
     func fetchPokemonList() {
         isLoading.accept(true)
         
-        fetchUseCase.execute(limit: limit, offset: offset)
+        fetchPokemonListUseCase.execute(limit: limit, offset: offset)
             .observe(on: MainScheduler.instance)
             .subscribe(onSuccess: { [weak self] result in
                 self?.pokemons.accept(result)
@@ -63,10 +59,11 @@ class HomeViewModel: AnyObject {
     }
     
     func fetchNextPage() {
-        guard !isLoading.value && hasMoreData else { return }
-        isLoading.accept(true)
+        guard !isLoading.value && hasMoreData && searchValue.value.isEmpty else { return }
+//        isLoading.accept(true)
         
-        fetchUseCase.execute(limit: limit, offset: offset)
+        self.offset += self.limit
+        fetchPokemonListUseCase.execute(limit: limit, offset: offset)
             .observe(on: MainScheduler.instance)
             .subscribe(onSuccess: { [weak self] result in
                 guard let self = self else { return }
@@ -75,12 +72,11 @@ class HomeViewModel: AnyObject {
                 let newData = current + result
                 self.pokemons.accept(newData)
                 
-                self.offset += self.limit
                 self.hasMoreData = !result.isEmpty
-                self.isLoading.accept(false)
+//                self.isLoading.accept(false)
             }, onFailure: { [weak self] error in
                 self?.errorMessage.accept(error.localizedDescription)
-                self?.isLoading.accept(false)
+//                self?.isLoading.accept(false)
             })
             .disposed(by: disposeBag)
     }

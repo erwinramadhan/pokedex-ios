@@ -10,6 +10,8 @@ import netfox
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    var coordinator: AppCoordinator?
+    var navigationController: UINavigationController?
 
     func scene(
         _ scene: UIScene,
@@ -21,36 +23,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         
-//        let localDataSource = RealmAuthLocalDataSource()
-//        let authRepo = AuthRepositoryImpl(localDataSource: localDataSource)
-//        let useCase = AuthStateUseCase(repository: authRepo)
-//        let diContainer = AppDIContainer()
-//        
-//        let rootVC: UIViewController
-//        if useCase.isUserLoggedIn() {
-//            let landingPagerTabStrip = LandingPagerTabStripViewModel()
-//            let homeViewModel = diContainer.makeHomeViewModel()
-//            let profileViewModel = ProfileViewModel()
-//            rootVC = LandingPagerTabStrip(viewModel: landingPagerTabStrip, homeViewModel: homeViewModel, profileViewModel: profileViewModel)
-//        } else {
-////            let vm = LoginViewModel()
-////            rootVC = LoginView(viewModel: vm)
-//            
-//            let landingPagerTabStrip = LandingPagerTabStripViewModel()
-//            let homeViewModel = diContainer.makeHomeViewModel()
-//            let profileViewModel = ProfileViewModel()
-//            rootVC = LandingPagerTabStrip(viewModel: landingPagerTabStrip, homeViewModel: homeViewModel, profileViewModel: profileViewModel)
-//        }
-//        
-//        NFX.sharedInstance().start()
-//        window?.rootViewController = rootVC
-//        window?.makeKeyAndVisible()
-        
         let appDIContainer = AppDIContainer()
-        let coordinator = AppCoordinator(window: window, appDIContainer: appDIContainer)
+        navigationController = UINavigationController()
+        navigationController?.navigationBar.isHidden = true
+        coordinator = AppCoordinator(window: window,
+                                     appDIContainer: appDIContainer,
+                                     navigationController: navigationController ?? UINavigationController()
+        )
         
-        coordinator.start()
-        
+        coordinator?.start()
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
         NFX.sharedInstance().start()

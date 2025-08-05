@@ -20,15 +20,15 @@ final class AppDIContainer {
 
     // MARK: - Use Cases
     lazy var fetchPokemonListUseCase: FetchPokemonListUseCase = DefaultFetchPokemonListUseCase(repository: pokemonRepository)
+    lazy var fetchPokemonDetailUseCase: FetchPokemonDetailUseCase = DefaultFetchPokemonDetailUseCase(repository: pokemonRepository)
 
     // MARK: - ViewModel Factory
-    func makeHomeViewModel() -> HomeViewModel {
-        return HomeViewModel(fetchUseCase: fetchPokemonListUseCase)
+    func makeHomeViewModel() -> HomeViewModel { return HomeViewModel(fetchPokemonListUseCase: fetchPokemonListUseCase) }
+    func makeProfileViewModel() -> ProfileViewModel { return ProfileViewModel() }
+    func makeLoginViewModel() -> LoginViewModel { return LoginViewModel() }
+    func makeRegisterViewModel() -> RegisterViewModel { return RegisterViewModel() }
+    func makeDetailViewModel(selectedPokemon: PokemonListItem) -> DetailViewModel {
+        return DetailViewModel(selectedPokemon: selectedPokemon, fetchPokemonDetailUseCase: fetchPokemonDetailUseCase)
     }
-    
-    func makeProfileViewModel() -> ProfileViewModel {
-        return ProfileViewModel()
-    }
-    
     
 }

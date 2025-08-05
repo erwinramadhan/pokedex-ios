@@ -18,4 +18,14 @@ final class PokemonAPIService: PokemonAPIServiceProtocol {
         let endpoint = PokemonEndpoint.list(limit: limit, offset: offset)
         return apiClient.request(endpoint, responseType: PokemonListResponseDTO.self)
     }
+    
+    func fetchPokemonDetail(id: Int) -> RxSwift.Single<PokemonDetailResponseDTO> {
+        let endpoint = PokemonEndpoint.detail(id: id)
+        return apiClient.request(endpoint, responseType: PokemonDetailResponseDTO.self)
+    }
+    
+    func fetchPokemonSpecies(id: Int) -> Single<PokemonSpeciesResponseDTO> {
+        let endpoint = PokemonEndpoint.species(id: id)
+        return apiClient.request(endpoint, responseType: PokemonSpeciesResponseDTO.self)
+    }
 }
