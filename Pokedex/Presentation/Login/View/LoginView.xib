@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginView" customModule="Pokedex" customModuleProvider="target">
             <connections>
                 <outlet property="formViewContainer" destination="RWB-hY-QaG" id="oyd-ZD-17Q"/>
+                <outlet property="loginButton" destination="mE1-rB-27L" id="Sa2-nd-X2Z"/>
+                <outlet property="registerButton" destination="8q1-Ua-gFb" id="3wU-u9-RdY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -47,7 +49,7 @@
                                     <rect key="frame" x="0.0" y="69" width="393" height="724"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OWi-g8-6Xd">
-                                            <rect key="frame" x="0.0" y="16" width="393" height="235"/>
+                                            <rect key="frame" x="0.0" y="16" width="393" height="282"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gsO-xe-Opf">
                                                     <rect key="frame" x="24" y="0.0" width="345" height="56"/>
@@ -113,6 +115,29 @@
                                                         </backgroundConfiguration>
                                                     </buttonConfiguration>
                                                 </button>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XIm-9D-wyk">
+                                                    <rect key="frame" x="24" y="251" width="345" height="31"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Hy-np-Zw6">
+                                                            <rect key="frame" x="46.333333333333329" y="0.0" width="252.33333333333337" height="31"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="251" text="Don’t have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBS-en-OCv">
+                                                                    <rect key="frame" x="0.0" y="6" width="170.33333333333334" height="19.333333333333332"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8q1-Ua-gFb">
+                                                                    <rect key="frame" x="170.33333333333331" y="0.0" width="82" height="31"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="Register">
+                                                                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="14"/>
+                                                                    </buttonConfiguration>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="24" bottom="0.0" trailing="24"/>
                                         </stackView>

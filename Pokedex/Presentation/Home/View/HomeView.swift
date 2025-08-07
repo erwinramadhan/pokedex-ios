@@ -55,6 +55,7 @@ class HomeView: UIViewController {
     func bindVM() {
         // Bind search input to viewModel
         searchTextField.rx.text.orEmpty
+            .debounce(.milliseconds(900), scheduler: MainScheduler.instance)
             .bind(to: viewModel.searchValue)
             .disposed(by: disposeBag)
         
@@ -81,7 +82,7 @@ class HomeView: UIViewController {
                     .withRenderingMode(.alwaysTemplate)
                     .withTintColor(.black, renderingMode: .alwaysOriginal)
                 
-                if let imageUrl = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(element.id).png") {
+                if let imageUrl = URL(string: element.image) {
                     cell.pokemonImageView.kf.setImage(
                         with: imageUrl,
                         placeholder: placeholderImage

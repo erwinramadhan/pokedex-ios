@@ -9,7 +9,8 @@ extension PokemonListItemDTO {
     func toDomain() -> PokemonListItem {
         return PokemonListItem(
             name: name,
-            id: extractID(from: url)
+            id: extractID(from: url),
+            image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(extractID(from: url)).png"
         )
     }
 

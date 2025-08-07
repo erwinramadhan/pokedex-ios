@@ -15,9 +15,11 @@ class PokemonStatView: UIView {
     private let progressBar = UIView()
 
     private let maxStatValue: CGFloat = 100
+    private var color: UIColor?
 
-    init(statName: String, statValue: Int) {
+    init(statName: String, statValue: Int, color: UIColor) {
         super.init(frame: .zero)
+        self.color = color
         setupView()
         configure(statName: statName, statValue: statValue)
     }
@@ -45,7 +47,7 @@ class PokemonStatView: UIView {
 
         // Label stat name
         nameLabel.font = .boldSystemFont(ofSize: 14)
-        nameLabel.textColor = UIColor.systemGreen
+        nameLabel.textColor = color
         nameLabel.widthAnchor.constraint(equalToConstant: 40).isActive = true
         nameLabel.textAlignment = .right
 
@@ -56,14 +58,14 @@ class PokemonStatView: UIView {
         valueLabel.textAlignment = .left
 
         // Background bar
-        progressBackground.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.2)
+        progressBackground.backgroundColor = color?.withAlphaComponent(0.2)
         progressBackground.layer.cornerRadius = 4
         progressBackground.translatesAutoresizingMaskIntoConstraints = false
         progressBackground.heightAnchor.constraint(equalToConstant: 8).isActive = true
 
         // Add bar ke dalam background
         progressBackground.addSubview(progressBar)
-        progressBar.backgroundColor = UIColor.systemGreen
+        progressBar.backgroundColor = color
         progressBar.layer.cornerRadius = 4
         progressBar.translatesAutoresizingMaskIntoConstraints = false
     }

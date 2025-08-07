@@ -20,11 +20,11 @@ class HomeViewModel: AnyObject {
     private var hasMoreData = true
     
     // MARK: - Dependencies
-    private let fetchPokemonListUseCase: FetchPokemonListUseCase
+    private let fetchPokemonListUseCase: FetchPokemonListUseCaseProtocol
     private let disposeBag = DisposeBag()
     
     // MARK: - Init
-    init(fetchPokemonListUseCase: FetchPokemonListUseCase) {
+    init(fetchPokemonListUseCase: FetchPokemonListUseCaseProtocol) {
         self.fetchPokemonListUseCase = fetchPokemonListUseCase
     }
     
@@ -60,7 +60,6 @@ class HomeViewModel: AnyObject {
     
     func fetchNextPage() {
         guard !isLoading.value && hasMoreData && searchValue.value.isEmpty else { return }
-//        isLoading.accept(true)
         
         self.offset += self.limit
         fetchPokemonListUseCase.execute(limit: limit, offset: offset)
@@ -73,10 +72,8 @@ class HomeViewModel: AnyObject {
                 self.pokemons.accept(newData)
                 
                 self.hasMoreData = !result.isEmpty
-//                self.isLoading.accept(false)
             }, onFailure: { [weak self] error in
                 self?.errorMessage.accept(error.localizedDescription)
-//                self?.isLoading.accept(false)
             })
             .disposed(by: disposeBag)
     }

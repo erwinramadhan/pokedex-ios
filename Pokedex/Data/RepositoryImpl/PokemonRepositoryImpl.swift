@@ -7,7 +7,7 @@
 
 import RxSwift
 
-final class DefaultPokemonRepository: PokemonRepository {
+final class PokemonRepositoryImpl: PokemonRepositoryProtocol {
     private let apiService: PokemonAPIServiceProtocol
 
     init(apiService: PokemonAPIServiceProtocol) {

@@ -8,4 +8,5 @@
 struct PokemonListItem {
     let name: String
     let id: Int
+    let image: String
 }

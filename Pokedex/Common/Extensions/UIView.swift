@@ -7,10 +7,25 @@
 
 import UIKit
 
+public typealias Closure = () -> Void
+
+class ClosureSleeve {
+    let closure: Closure
+    init(_ closure: @escaping Closure) {
+        self.closure = closure
+    }
+    @objc func invoke() {
+        closure()
+    }
+}
+
 extension UIView {
-    func loadNib() -> UIView {
-        guard let nibName = type(of: self).description().components(separatedBy: ".").last else { return UIView() }
-        let nib = UINib(nibName: nibName, bundle: Bundle(for: `classForCoder`.self))
-        return nib.instantiate(withOwner: self, options: nil).first as? UIView ?? UIView()
+    func addAction(for controlEvents: UIControl.Event = .touchUpInside, _ closure: @escaping Closure) {
+        let sleeve = ClosureSleeve(closure)
+        let gesture = UITapGestureRecognizer(target: sleeve, action: #selector(ClosureSleeve.invoke))
+        gesture.numberOfTapsRequired = 1
+        addGestureRecognizer(gesture)
+        isUserInteractionEnabled = true
+        objc_setAssociatedObject(self, String(format: "[%d]", Int.random(in: 0..<Int.max)), sleeve, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
     }
 }

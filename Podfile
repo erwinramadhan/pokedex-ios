@@ -12,6 +12,7 @@ target 'Pokedex' do
   pod 'XLPagerTabStrip', '~> 9.0'
   pod 'RealmSwift'
   pod 'netfox'
+  pod 'Sodium'
 end
 
 post_install do |installer|

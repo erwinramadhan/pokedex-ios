@@ -1,5 +1,5 @@
 //
-//  PokemonAPIService.swift
+//  PokemonAPIServiceImpl.swift
 //  Pokedex
 //
 //  Created by Erwin Ramadhan Edwar Putra on 04/08/25.
@@ -7,7 +7,7 @@
 
 import RxSwift
 
-final class PokemonAPIService: PokemonAPIServiceProtocol {
+final class PokemonAPIServiceImpl: PokemonAPIServiceProtocol {
     private let apiClient: APIClientProtocol
 
     init(apiClient: APIClientProtocol) {

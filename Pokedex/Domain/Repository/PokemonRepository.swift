@@ -7,7 +7,7 @@
 
 import RxSwift
 
-protocol PokemonRepository {
+protocol PokemonRepositoryProtocol {
     func fetchPokemonList(limit: Int, offset: Int) -> Single<[PokemonListItem]>
     func fetchPokemonDetail(id: Int) -> Single<PokemonDetailResponseDTO>
     func fetchPokemonSpecies(id: Int) -> Single<PokemonSpeciesResponseDTO>

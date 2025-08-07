@@ -82,45 +82,28 @@ class DetailView: UIViewController {
     
     func bindingVMToUI() {
         // Color
-        let colorObservable = viewModel.pokemonObserve
+        viewModel.pokemonObserve
             .observe(on: MainScheduler.instance)
             .map { PokemonColorMapper.uiColor(for: $0.color ?? "gray") }
-        
-        colorObservable
-            .bind(to: topAppBarView.rx.backgroundColor)
-            .disposed(by: disposeBag)
-        colorObservable
-            .bind(to: topAppBarView.contentView.rx.backgroundColor)
-            .disposed(by: disposeBag)
-        colorObservable
-            .bind(to: view.rx.backgroundColor)
-            .disposed(by: disposeBag)
-        colorObservable
-            .bind(to: containerView.rx.backgroundColor)
-            .disposed(by: disposeBag)
-        colorObservable
-            .bind(to: contentView.rx.backgroundColor)
-            .disposed(by: disposeBag)
-        colorObservable
-            .bind(to: aboutLabel.rx.textColor)
-            .disposed(by: disposeBag)
-        colorObservable
-            .bind(to: aboutLabel.rx.textColor)
-            .disposed(by: disposeBag)
-        colorObservable
-            .bind(to: baseStatsLabel.rx.textColor)
+            .bind(to:
+                    topAppBarView.rx.backgroundColor,
+                  topAppBarView.contentView.rx.backgroundColor,
+                  view.rx.backgroundColor,
+                  containerView.rx.backgroundColor,
+                  contentView.rx.backgroundColor,
+                  aboutLabel.rx.textColor,
+                  baseStatsLabel.rx.textColor
+            )
             .disposed(by: disposeBag)
         
         // Image
-        let imageUrlObservable = viewModel.pokemonObserve
-            .map { URL(string: $0.imageURL ?? "") }
-            .observe(on: MainScheduler.instance)
-        
         let placeholderImage = UIImage(systemName: "photo")?
             .withRenderingMode(.alwaysTemplate)
             .withTintColor(.black, renderingMode: .alwaysOriginal)
         
-        imageUrlObservable
+        viewModel.pokemonObserve
+            .map { URL(string: $0.imageURL ?? "") }
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] url in
                 self?.imageView.kf.setImage(
                     with: url,
@@ -189,16 +172,17 @@ class DetailView: UIViewController {
         // Stats
         viewModel.pokemonObserve
             .observe(on: MainScheduler.instance)
-            .map { $0.stats }
-            .subscribe(onNext: { [weak self] stats in
+            .subscribe(onNext: { [weak self] pokemon in
                 guard let self = self else { return }
+                let pokemonStats = pokemon.stats
+                let color = PokemonColorMapper.uiColor(for: pokemon.color ?? "")
                 
                 self.statsStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
                 
-                for stat in stats {
+                for stat in pokemonStats {
                     let shortName = PokemonStatNameMapper.shortName(for: stat.name)
-
-                    let statView = PokemonStatView(statName: shortName, statValue: stat.baseStat)
+                    
+                    let statView = PokemonStatView(statName: shortName, statValue: stat.baseStat, color: color)
                     statsStackView.addArrangedSubview(statView)
                 }
             })

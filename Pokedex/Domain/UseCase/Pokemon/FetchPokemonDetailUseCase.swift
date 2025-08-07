@@ -7,14 +7,14 @@
 
 import RxSwift
 
-protocol FetchPokemonDetailUseCase {
+protocol FetchPokemonDetailUseCaseProtocol {
     func execute(id: Int) -> Single<PokemonDetail>
 }
 
-class DefaultFetchPokemonDetailUseCase: FetchPokemonDetailUseCase {
-    private let repository: PokemonRepository
+class FetchPokemonDetailUseCaseImpl: FetchPokemonDetailUseCaseProtocol {
+    private let repository: PokemonRepositoryProtocol
     
-    init(repository: PokemonRepository) {
+    init(repository: PokemonRepositoryProtocol) {
         self.repository = repository
     }
     

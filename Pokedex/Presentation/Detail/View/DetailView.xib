@@ -52,10 +52,10 @@
                                             <rect key="frame" x="0.0" y="100" width="377" height="483"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhz-XX-Bw1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="377" height="307.33333333333331"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="377" height="327.33333333333331"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gPg-C3-vuO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="377" height="307.33333333333331"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="377" height="327.33333333333331"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mEt-8g-CjD" userLabel="TypesStackView">
                                                                     <rect key="frame" x="168" y="0.0" width="41.333333333333343" height="20.333333333333332"/>
@@ -184,10 +184,10 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ERc-2F-J9Q">
-                                                                    <rect key="frame" x="0.0" y="287" width="377" height="20.333333333333314"/>
+                                                                    <rect key="frame" x="0.0" y="287" width="377" height="40.333333333333314"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="QX9-pb-5dt">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="377" height="20.333333333333332"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="377" height="40.333333333333336"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sck-bv-zuJ">
                                                                                     <rect key="frame" x="20" y="0.0" width="337" height="20.333333333333332"/>
@@ -196,7 +196,7 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                             </subviews>
-                                                                            <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="20" bottom="0.0" trailing="20"/>
+                                                                            <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="20" bottom="20" trailing="20"/>
                                                                         </stackView>
                                                                     </subviews>
                                                                 </stackView>

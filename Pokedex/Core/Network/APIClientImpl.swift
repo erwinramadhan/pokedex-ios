@@ -1,5 +1,5 @@
 //
-//  APIClient.swift
+//  APIClientImpl.swift
 //  Pokedex
 //
 //  Created by Erwin Ramadhan Edwar Putra on 03/08/25.
@@ -8,7 +8,7 @@
 import Alamofire
 import RxSwift
 
-final class DefaultAPIClient: APIClientProtocol {
+final class APIClientImpl: APIClientProtocol {
     func request<T: Decodable>(_ endpoint: APIEndpoint, responseType: T.Type) -> Single<T> {
         return Single.create { single in
             let afRequest = AF.request(

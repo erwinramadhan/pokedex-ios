@@ -16,12 +16,12 @@ class DetailViewModel {
     
     // MARK: - Dependencies
     private let selectedPokemon: PokemonListItem
-    private let fetchPokemonDetailUseCase: FetchPokemonDetailUseCase
+    private let fetchPokemonDetailUseCase: FetchPokemonDetailUseCaseProtocol
     private let disposeBag = DisposeBag()
     
     // MARK: - Init
     init(selectedPokemon: PokemonListItem,
-         fetchPokemonDetailUseCase: FetchPokemonDetailUseCase) {
+         fetchPokemonDetailUseCase: FetchPokemonDetailUseCaseProtocol) {
         self.selectedPokemon = selectedPokemon
         self.fetchPokemonDetailUseCase = fetchPokemonDetailUseCase
     }
@@ -42,7 +42,6 @@ class DetailViewModel {
     // MARK: - Public Methods
     func fetchPokemonDetail() {
         isLoading.accept(true)
-        
         fetchPokemonDetailUseCase.execute(id: selectedPokemon.id)
             .observe(on: MainScheduler.instance)
 //            .subscribe { event in

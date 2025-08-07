@@ -24,16 +24,22 @@
 		5D4407DD2E42750200E464FA /* PokemonTypeColorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4407DC2E4274FD00E464FA /* PokemonTypeColorMapper.swift */; };
 		5D4407E02E4281D900E464FA /* PokemonStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4407DF2E4281D300E464FA /* PokemonStatView.swift */; };
 		5D4407E22E42834000E464FA /* PokemonStatNameMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4407E12E42833900E464FA /* PokemonStatNameMapper.swift */; };
+		5D4407E52E4312DF00E464FA /* PasswordHasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4407E42E4312D200E464FA /* PasswordHasher.swift */; };
+		5D4407E82E4335B600E464FA /* UserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4407E72E4335B400E464FA /* UserMapper.swift */; };
+		5D4407EA2E43360700E464FA /* FavoritePokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4407E92E43360500E464FA /* FavoritePokemon.swift */; };
+		5D4407EC2E433BBC00E464FA /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4407EB2E433BB500E464FA /* LoginUseCase.swift */; };
+		5D4407EE2E43448F00E464FA /* GetCurrentUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4407ED2E43448300E464FA /* GetCurrentUserUseCase.swift */; };
+		5D4407F02E43810700E464FA /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5D4407EF2E43810700E464FA /* Location.gpx */; };
+		5D4407F22E4381D400E464FA /* RegisterUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4407F12E4381CF00E464FA /* RegisterUserUseCase.swift */; };
 		5D56ECDA2E3F7BDF00E21B98 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D56ECD92E3F7BDF00E21B98 /* LoginView.xib */; };
 		5D56ECDB2E3F7BDF00E21B98 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ECD82E3F7BDF00E21B98 /* LoginView.swift */; };
 		5D56ECDE2E3F826A00E21B98 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D56ECDD2E3F826A00E21B98 /* RegisterView.xib */; };
 		5D56ECDF2E3F826A00E21B98 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ECDC2E3F826A00E21B98 /* RegisterView.swift */; };
 		5D56ECE22E3F860A00E21B98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ECE12E3F860A00E21B98 /* User.swift */; };
-		5D56ECE62E3F869400E21B98 /* AuthRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ECE52E3F869400E21B98 /* AuthRepositoryImpl.swift */; };
+		5D56ECE62E3F869400E21B98 /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ECE52E3F869400E21B98 /* UserRepositoryImpl.swift */; };
 		5D56ECEA2E3F86BF00E21B98 /* RealmAuthLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ECE92E3F86BF00E21B98 /* RealmAuthLocalDataSource.swift */; };
 		5D56ECEE2E3F872300E21B98 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ECED2E3F872300E21B98 /* RealmManager.swift */; };
-		5D56ECF02E3F874900E21B98 /* AuthStateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ECEF2E3F874900E21B98 /* AuthStateUseCase.swift */; };
-		5D56ECF22E3F87D100E21B98 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ECF12E3F87D100E21B98 /* AuthRepository.swift */; };
+		5D56ECF22E3F87D100E21B98 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ECF12E3F87D100E21B98 /* UserRepository.swift */; };
 		5D56ECF52E3F892D00E21B98 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ECF42E3F892D00E21B98 /* LoginViewModel.swift */; };
 		5D56ECF82E3F8FC500E21B98 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ECF72E3F8FC500E21B98 /* RegisterViewModel.swift */; };
 		5D56ECFE2E3F909E00E21B98 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D56ECFD2E3F909E00E21B98 /* HomeView.xib */; };
@@ -44,7 +50,7 @@
 		5D56ED0B2E3FA36C00E21B98 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ED082E3FA36C00E21B98 /* ProfileView.swift */; };
 		5D56ED0E2E3FA39E00E21B98 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ED0D2E3FA39E00E21B98 /* ProfileViewModel.swift */; };
 		5D56ED112E3FA46E00E21B98 /* LandingPagerTabStripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ED102E3FA46E00E21B98 /* LandingPagerTabStripViewModel.swift */; };
-		5D56ED152E3FC52D00E21B98 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ED142E3FC52400E21B98 /* APIClient.swift */; };
+		5D56ED152E3FC52D00E21B98 /* APIClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ED142E3FC52400E21B98 /* APIClientImpl.swift */; };
 		5D56ED172E3FC53500E21B98 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ED162E3FC53300E21B98 /* APIEndpoint.swift */; };
 		5D56ED192E3FC54200E21B98 /* PokemonEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ED182E3FC53B00E21B98 /* PokemonEndpoint.swift */; };
 		5D56ED202E3FC67900E21B98 /* PokemonRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ED1F2E3FC66E00E21B98 /* PokemonRepositoryImpl.swift */; };
@@ -56,7 +62,7 @@
 		5D56ED422E3FE8BB00E21B98 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ED412E3FE8B700E21B98 /* APIService.swift */; };
 		5D56ED452E3FECFB00E21B98 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ED442E3FECF700E21B98 /* AppDIContainer.swift */; };
 		5D56ED472E3FEE2A00E21B98 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ED462E3FEE2500E21B98 /* NetworkError.swift */; };
-		5D56ED4A2E3FF03E00E21B98 /* PokemonAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ED492E3FF03A00E21B98 /* PokemonAPIService.swift */; };
+		5D56ED4A2E3FF03E00E21B98 /* PokemonAPIServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ED492E3FF03A00E21B98 /* PokemonAPIServiceImpl.swift */; };
 		5D56ED4C2E3FF05100E21B98 /* PokemonAPIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D56ED4B2E3FF04C00E21B98 /* PokemonAPIServiceProtocol.swift */; };
 		5D8CA95E2E40A6DB008AD8EC /* BaseCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8CA95D2E40A6A9008AD8EC /* BaseCoordinatorProtocol.swift */; };
 		5D8CA9602E40A73D008AD8EC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8CA95F2E40A708008AD8EC /* AppCoordinator.swift */; };
@@ -90,16 +96,22 @@
 		5D4407DC2E4274FD00E464FA /* PokemonTypeColorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypeColorMapper.swift; sourceTree = "<group>"; };
 		5D4407DF2E4281D300E464FA /* PokemonStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatView.swift; sourceTree = "<group>"; };
 		5D4407E12E42833900E464FA /* PokemonStatNameMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatNameMapper.swift; sourceTree = "<group>"; };
+		5D4407E42E4312D200E464FA /* PasswordHasher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHasher.swift; sourceTree = "<group>"; };
+		5D4407E72E4335B400E464FA /* UserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMapper.swift; sourceTree = "<group>"; };
+		5D4407E92E43360500E464FA /* FavoritePokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePokemon.swift; sourceTree = "<group>"; };
+		5D4407EB2E433BB500E464FA /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		5D4407ED2E43448300E464FA /* GetCurrentUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentUserUseCase.swift; sourceTree = "<group>"; };
+		5D4407EF2E43810700E464FA /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
+		5D4407F12E4381CF00E464FA /* RegisterUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserUseCase.swift; sourceTree = "<group>"; };
 		5D56ECD82E3F7BDF00E21B98 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5D56ECD92E3F7BDF00E21B98 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		5D56ECDC2E3F826A00E21B98 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		5D56ECDD2E3F826A00E21B98 /* RegisterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
 		5D56ECE12E3F860A00E21B98 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		5D56ECE52E3F869400E21B98 /* AuthRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepositoryImpl.swift; sourceTree = "<group>"; };
+		5D56ECE52E3F869400E21B98 /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
 		5D56ECE92E3F86BF00E21B98 /* RealmAuthLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAuthLocalDataSource.swift; sourceTree = "<group>"; };
 		5D56ECED2E3F872300E21B98 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
-		5D56ECEF2E3F874900E21B98 /* AuthStateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateUseCase.swift; sourceTree = "<group>"; };
-		5D56ECF12E3F87D100E21B98 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		5D56ECF12E3F87D100E21B98 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		5D56ECF42E3F892D00E21B98 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5D56ECF72E3F8FC500E21B98 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		5D56ECFC2E3F909E00E21B98 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -110,7 +122,7 @@
 		5D56ED092E3FA36C00E21B98 /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
 		5D56ED0D2E3FA39E00E21B98 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5D56ED102E3FA46E00E21B98 /* LandingPagerTabStripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPagerTabStripViewModel.swift; sourceTree = "<group>"; };
-		5D56ED142E3FC52400E21B98 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		5D56ED142E3FC52400E21B98 /* APIClientImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientImpl.swift; sourceTree = "<group>"; };
 		5D56ED162E3FC53300E21B98 /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		5D56ED182E3FC53B00E21B98 /* PokemonEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonEndpoint.swift; sourceTree = "<group>"; };
 		5D56ED1F2E3FC66E00E21B98 /* PokemonRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -122,7 +134,7 @@
 		5D56ED412E3FE8B700E21B98 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		5D56ED442E3FECF700E21B98 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		5D56ED462E3FEE2500E21B98 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		5D56ED492E3FF03A00E21B98 /* PokemonAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPIService.swift; sourceTree = "<group>"; };
+		5D56ED492E3FF03A00E21B98 /* PokemonAPIServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPIServiceImpl.swift; sourceTree = "<group>"; };
 		5D56ED4B2E3FF04C00E21B98 /* PokemonAPIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPIServiceProtocol.swift; sourceTree = "<group>"; };
 		5D8CA95D2E40A6A9008AD8EC /* BaseCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		5D8CA95F2E40A708008AD8EC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -164,6 +176,7 @@
 		584B15FB74CF544E5A557B41 /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				5D4407EF2E43810700E464FA /* Location.gpx */,
 				5D56ED392E3FE3F500E21B98 /* Data */,
 				5D56ED2E2E3FE13000E21B98 /* Presentation */,
 				5D56ED2C2E3FE0F200E21B98 /* Common */,
@@ -258,6 +271,22 @@
 			path = PokemonStatView;
 			sourceTree = "<group>";
 		};
+		5D4407E32E4312CB00E464FA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5D4407E42E4312D200E464FA /* PasswordHasher.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		5D4407E62E4335A900E464FA /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				5D4407E72E4335B400E464FA /* UserMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
 		5D56ECC82E3F760E00E21B98 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +300,7 @@
 		5D56ECC92E3F761500E21B98 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				5D4407E92E43360500E464FA /* FavoritePokemon.swift */,
 				5D4407C82E41E9C800E464FA /* PokemonDetail.swift */,
 				5D56ED3D2E3FE61100E21B98 /* PokemonListItem.swift */,
 				5D56ECE12E3F860A00E21B98 /* User.swift */,
@@ -282,7 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				5D56ED242E3FC74800E21B98 /* Pokemon */,
-				5D56ECE32E3F861900E21B98 /* Auth */,
+				5D56ECE32E3F861900E21B98 /* User */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -312,7 +342,7 @@
 				5D56ED412E3FE8B700E21B98 /* APIService.swift */,
 				5D56ED182E3FC53B00E21B98 /* PokemonEndpoint.swift */,
 				5D56ED162E3FC53300E21B98 /* APIEndpoint.swift */,
-				5D56ED142E3FC52400E21B98 /* APIClient.swift */,
+				5D56ED142E3FC52400E21B98 /* APIClientImpl.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -344,12 +374,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		5D56ECE32E3F861900E21B98 /* Auth */ = {
+		5D56ECE32E3F861900E21B98 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				5D56ECEF2E3F874900E21B98 /* AuthStateUseCase.swift */,
+				5D4407F12E4381CF00E464FA /* RegisterUserUseCase.swift */,
+				5D4407ED2E43448300E464FA /* GetCurrentUserUseCase.swift */,
+				5D4407EB2E433BB500E464FA /* LoginUseCase.swift */,
 			);
-			path = Auth;
+			path = User;
 			sourceTree = "<group>";
 		};
 		5D56ECF32E3F891600E21B98 /* ViewModel */ = {
@@ -421,7 +453,7 @@
 		5D56ED212E3FC6B300E21B98 /* RepositoryImpl */ = {
 			isa = PBXGroup;
 			children = (
-				5D56ECE52E3F869400E21B98 /* AuthRepositoryImpl.swift */,
+				5D56ECE52E3F869400E21B98 /* UserRepositoryImpl.swift */,
 				5D56ED1F2E3FC66E00E21B98 /* PokemonRepositoryImpl.swift */,
 			);
 			path = RepositoryImpl;
@@ -470,6 +502,7 @@
 		5D56ED2C2E3FE0F200E21B98 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				5D4407E32E4312CB00E464FA /* Utils */,
 				5D56ED2D2E3FE0FD00E21B98 /* Components */,
 				5D56ECD22E3F767900E21B98 /* Extensions */,
 			);
@@ -548,7 +581,7 @@
 			isa = PBXGroup;
 			children = (
 				5D56ED222E3FC6BF00E21B98 /* PokemonRepository.swift */,
-				5D56ECF12E3F87D100E21B98 /* AuthRepository.swift */,
+				5D56ECF12E3F87D100E21B98 /* UserRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -556,6 +589,7 @@
 		5D56ED392E3FE3F500E21B98 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				5D4407E62E4335A900E464FA /* Mapper */,
 				5D56ED3A2E3FE54100E21B98 /* Model */,
 				5D56ECD02E3F766300E21B98 /* DataSource */,
 				5D56ED212E3FC6B300E21B98 /* RepositoryImpl */,
@@ -577,7 +611,7 @@
 			isa = PBXGroup;
 			children = (
 				5D56ED4B2E3FF04C00E21B98 /* PokemonAPIServiceProtocol.swift */,
-				5D56ED492E3FF03A00E21B98 /* PokemonAPIService.swift */,
+				5D56ED492E3FF03A00E21B98 /* PokemonAPIServiceImpl.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -674,6 +708,7 @@
 			files = (
 				5D8CA9672E412ABF008AD8EC /* PokemonCardCell.xib in Resources */,
 				5D4407D52E42547D00E464FA /* TopAppBarView.xib in Resources */,
+				5D4407F02E43810700E464FA /* Location.gpx in Resources */,
 				5DC362912E3F7218004F1BF2 /* Assets.xcassets in Resources */,
 				93DF864A368FC7F3462E8B13 /* LaunchScreen.storyboard in Resources */,
 				5D56ED0A2E3FA36C00E21B98 /* ProfileView.xib in Resources */,
@@ -733,7 +768,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D56ED4A2E3FF03E00E21B98 /* PokemonAPIService.swift in Sources */,
+				5D56ED4A2E3FF03E00E21B98 /* PokemonAPIServiceImpl.swift in Sources */,
 				5D56ECDF2E3F826A00E21B98 /* RegisterView.swift in Sources */,
 				5D4407D62E42547D00E464FA /* TopAppBarView.swift in Sources */,
 				5D56ED0E2E3FA39E00E21B98 /* ProfileViewModel.swift in Sources */,
@@ -742,27 +777,30 @@
 				5D4407DD2E42750200E464FA /* PokemonTypeColorMapper.swift in Sources */,
 				5D56ED112E3FA46E00E21B98 /* LandingPagerTabStripViewModel.swift in Sources */,
 				5D56ED3E2E3FE61800E21B98 /* PokemonListItem.swift in Sources */,
+				5D4407EE2E43448F00E464FA /* GetCurrentUserUseCase.swift in Sources */,
 				5D4407BF2E41E0FE00E464FA /* DetailView.swift in Sources */,
 				5DC3628F2E3F6ECB004F1BF2 /* MainApplication.swift in Sources */,
 				5D56ED192E3FC54200E21B98 /* PokemonEndpoint.swift in Sources */,
 				5D56ED012E3F90B700E21B98 /* HomeViewModel.swift in Sources */,
 				5D4407E02E4281D900E464FA /* PokemonStatView.swift in Sources */,
+				5D4407EC2E433BBC00E464FA /* LoginUseCase.swift in Sources */,
 				5D8CA9682E412ABF008AD8EC /* PokemonCardCell.swift in Sources */,
 				5D56ECFF2E3F909E00E21B98 /* HomeView.swift in Sources */,
 				5D4407D12E42043D00E464FA /* PokemonSpeciesResponseDTO+ext.swift in Sources */,
 				5D56ED452E3FECFB00E21B98 /* AppDIContainer.swift in Sources */,
 				5D4407D82E4258F300E464FA /* UIView.swift in Sources */,
+				5D4407E52E4312DF00E464FA /* PasswordHasher.swift in Sources */,
 				5D4407DB2E42690000E464FA /* PokemonColorMapper.swift in Sources */,
 				D11F1A2DD3E64C58CA69B398 /* SceneDelegate.swift in Sources */,
-				5D56ED152E3FC52D00E21B98 /* APIClient.swift in Sources */,
+				5D56ED152E3FC52D00E21B98 /* APIClientImpl.swift in Sources */,
 				5D56ECDB2E3F7BDF00E21B98 /* LoginView.swift in Sources */,
 				5D56ED052E3FA27700E21B98 /* LandingPagerTabStripView.swift in Sources */,
 				5D56ED472E3FEE2A00E21B98 /* NetworkError.swift in Sources */,
 				5D56ED232E3FC6D000E21B98 /* PokemonRepository.swift in Sources */,
-				5D56ECF02E3F874900E21B98 /* AuthStateUseCase.swift in Sources */,
 				5D4407CB2E41F40400E464FA /* FetchPokemonDetailUseCase.swift in Sources */,
 				5D4407C92E41E9CD00E464FA /* PokemonDetail.swift in Sources */,
 				5D56ED402E3FE64A00E21B98 /* PokemonListResponseDTO+ext.swift in Sources */,
+				5D4407EA2E43360700E464FA /* FavoritePokemon.swift in Sources */,
 				5D8CA9632E41277D008AD8EC /* UIColor.swift in Sources */,
 				5D56ECEE2E3F872300E21B98 /* RealmManager.swift in Sources */,
 				5D56ED0B2E3FA36C00E21B98 /* ProfileView.swift in Sources */,
@@ -775,12 +813,14 @@
 				5D8CA95E2E40A6DB008AD8EC /* BaseCoordinatorProtocol.swift in Sources */,
 				5D56ECF82E3F8FC500E21B98 /* RegisterViewModel.swift in Sources */,
 				5D56ECE22E3F860A00E21B98 /* User.swift in Sources */,
-				5D56ECF22E3F87D100E21B98 /* AuthRepository.swift in Sources */,
+				5D56ECF22E3F87D100E21B98 /* UserRepository.swift in Sources */,
 				5D4407C52E41E71700E464FA /* PokemonDetailResponseDTO.swift in Sources */,
+				5D4407E82E4335B600E464FA /* UserMapper.swift in Sources */,
 				5D56ED4C2E3FF05100E21B98 /* PokemonAPIServiceProtocol.swift in Sources */,
 				5D4407C12E41E11500E464FA /* DetailViewModel.swift in Sources */,
 				5D8CA9602E40A73D008AD8EC /* AppCoordinator.swift in Sources */,
-				5D56ECE62E3F869400E21B98 /* AuthRepositoryImpl.swift in Sources */,
+				5D4407F22E4381D400E464FA /* RegisterUserUseCase.swift in Sources */,
+				5D56ECE62E3F869400E21B98 /* UserRepositoryImpl.swift in Sources */,
 				5D4407E22E42834000E464FA /* PokemonStatNameMapper.swift in Sources */,
 				5D56ED172E3FC53500E21B98 /* APIEndpoint.swift in Sources */,
 				5D56ECEA2E3F86BF00E21B98 /* RealmAuthLocalDataSource.swift in Sources */,

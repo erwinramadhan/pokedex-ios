@@ -6,27 +6,46 @@
 //
 
 import Foundation
+import RealmSwift
 
 final class AppDIContainer {
     
+    // MARK: - Database Realm
+    lazy var realm = try? Realm()
+    
     // MARK: - Network
-    lazy var apiClient: APIClientProtocol = DefaultAPIClient()
+    lazy var apiClient: APIClientProtocol = APIClientImpl()
 
     // MARK: - Services
-    lazy var pokemonApiService: PokemonAPIService = PokemonAPIService(apiClient: apiClient)
+    lazy var pokemonApiService: PokemonAPIServiceProtocol = PokemonAPIServiceImpl(apiClient: apiClient)
 
-    // MARK: - Repositories
-    lazy var pokemonRepository: PokemonRepository = DefaultPokemonRepository(apiService: pokemonApiService)
+    // MARK: - Remote Repositories
+    lazy var pokemonRepository: PokemonRepositoryProtocol = PokemonRepositoryImpl(apiService: pokemonApiService)
+    
+    lazy var localDataSource: UserLocalDataSourceProtocol = RealmAuthLocalDataSource(realm: realm)
+    
+    // MARK: - Local Repositories
+    lazy var userRepository: UserRepositoryProtocol = UserRepositoryImpl(
+//        realm: realm
+        localDataSource: localDataSource
+    )
 
     // MARK: - Use Cases
-    lazy var fetchPokemonListUseCase: FetchPokemonListUseCase = DefaultFetchPokemonListUseCase(repository: pokemonRepository)
-    lazy var fetchPokemonDetailUseCase: FetchPokemonDetailUseCase = DefaultFetchPokemonDetailUseCase(repository: pokemonRepository)
+    lazy var fetchPokemonListUseCase: FetchPokemonListUseCaseProtocol = FetchPokemonListUseCaseImpl(repository: pokemonRepository)
+    lazy var fetchPokemonDetailUseCase: FetchPokemonDetailUseCaseProtocol = FetchPokemonDetailUseCaseImpl(repository: pokemonRepository)
+    lazy var loginUseCase: LoginUseCaseProtocol = LoginUseCaseImpl(repository: userRepository)
+    lazy var registerUserUseCase: RegisterUserUseCaseProtocol = RegisterUserUseCaseImpl(repository: userRepository)
 
+    // MARK: - Repository Factor
+    func makeUserRepository() -> UserRepositoryProtocol {
+        return userRepository
+    }
+    
     // MARK: - ViewModel Factory
     func makeHomeViewModel() -> HomeViewModel { return HomeViewModel(fetchPokemonListUseCase: fetchPokemonListUseCase) }
     func makeProfileViewModel() -> ProfileViewModel { return ProfileViewModel() }
-    func makeLoginViewModel() -> LoginViewModel { return LoginViewModel() }
-    func makeRegisterViewModel() -> RegisterViewModel { return RegisterViewModel() }
+    func makeLoginViewModel() -> LoginViewModel { return LoginViewModel(loginUseCase: loginUseCase) }
+    func makeRegisterViewModel() -> RegisterViewModel { return RegisterViewModel(registerUserUseCase: registerUserUseCase) }
     func makeDetailViewModel(selectedPokemon: PokemonListItem) -> DetailViewModel {
         return DetailViewModel(selectedPokemon: selectedPokemon, fetchPokemonDetailUseCase: fetchPokemonDetailUseCase)
     }
