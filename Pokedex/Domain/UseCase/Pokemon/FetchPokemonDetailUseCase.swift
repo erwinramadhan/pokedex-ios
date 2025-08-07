@@ -24,13 +24,11 @@ class FetchPokemonDetailUseCaseImpl: FetchPokemonDetailUseCaseProtocol {
         
         let safeDetailObs = detailS
             .catch { error in
-                print("Detail error: \(error)")
                 return .just(PokemonDetailResponseDTO.empty)
             }
 
         let safeSpeciesObs = speciesS
             .catch { error in
-                print("Species error: \(error)")
                 return .just(PokemonSpeciesResponseDTO.empty)
             }
         

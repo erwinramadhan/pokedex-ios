@@ -43,18 +43,14 @@ class LoginViewModel {
                 onNext: { [weak self] user in
                     guard let self else { return }
                     if let user {
-                        print("LOGIN SUCCESS", user)
-                        print("userid", user.id, user.name)
                         UserDefaults.standard.set(user.id, forKey: "currentUserId")
                         isSuccessLogin.accept(true)
                     } else {
-                        print("LOGIN FAILED")
                         isSuccessLogin.accept(false)
                     }
                 },
                 onError: { [weak self] error in
                     guard let self else { return }
-                    print("error.localizedDescription", error.localizedDescription)
                     errorMessage.accept(error.localizedDescription)
                 }
             )

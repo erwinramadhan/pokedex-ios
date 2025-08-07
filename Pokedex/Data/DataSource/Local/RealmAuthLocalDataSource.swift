@@ -36,8 +36,6 @@ class RealmAuthLocalDataSource: UserLocalDataSourceProtocol {
     
     init(realm: Realm?) {
         self.realm = realm
-        
-        print("Realm file path: \(realm?.configuration.fileURL)")
     }
     
     func saveUser(_ user: RealmUserObject) -> Observable<Void> {
@@ -67,7 +65,6 @@ class RealmAuthLocalDataSource: UserLocalDataSourceProtocol {
                     let hasher = PasswordHasher()
                     if hasher.verify(password: password, storedHash: realmUser.password) {
                         observer.onNext(realmUser.toDomain())
-                        print("realmUser", realmUser)
                     } else {
                         observer.onError(LoginError.passwordNotMatch)
                     }

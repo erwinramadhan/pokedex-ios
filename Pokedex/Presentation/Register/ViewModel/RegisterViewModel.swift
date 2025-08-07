@@ -52,17 +52,13 @@ class RegisterViewModel: AnyObject {
                         password:  hashedPassword,
                         favorites: [])
         
-        print("REGISTER REQUEST", user)
-        
         registerUserUseCase.execute(user: user)
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onNext: { [weak self] in
-                    print("Success save user!")
                     self?.registerResult.onNext(true)
                 },
                 onError: { [weak self] error in
-                    print("Failed save user: \(error)")
                     self?.registerResult.onNext(false)
                 }
             )
