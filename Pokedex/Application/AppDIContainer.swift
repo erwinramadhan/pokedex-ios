@@ -35,19 +35,29 @@ final class AppDIContainer {
     lazy var fetchPokemonDetailUseCase: FetchPokemonDetailUseCaseProtocol = FetchPokemonDetailUseCaseImpl(repository: pokemonRepository)
     lazy var loginUseCase: LoginUseCaseProtocol = LoginUseCaseImpl(repository: userRepository)
     lazy var registerUserUseCase: RegisterUserUseCaseProtocol = RegisterUserUseCaseImpl(repository: userRepository)
+    lazy var getCurrentUserUseCase: GetCurrentUserUseCaseProtocol = GetCurrentUserUseCaseImpl(repository: userRepository)
+    lazy var addFavoritePokemonUseCase: AddFavoritePokemonUseCaseProtocol = AddFavoritePokemonUseCaseImpl(repository: userRepository)
+    lazy var removeFavoritePokemonUseCase: RemoveFavoritePokemonUseCaseProtocol = RemoveFavoritePokemonUseCaseImpl(repository: userRepository)
+    lazy var isFavoritePokemonUseCase: IsFavoritePokemonUseCaseProtocol = IsFavoritePokemonUseCaseImpl(repository: userRepository)
+    lazy var getListFavoritesPokemonUseCase: GetFavoritesPokemonUseCaseProtocol = GetFavoritesPokemonUseCaseImpl(repository: userRepository)
 
-    // MARK: - Repository Factor
-    func makeUserRepository() -> UserRepositoryProtocol {
-        return userRepository
+    // MARK: - Use Cases Factory
+    func makeGettCurrentUserUseCase() -> GetCurrentUserUseCaseProtocol {
+        return getCurrentUserUseCase
     }
-    
+        
     // MARK: - ViewModel Factory
     func makeHomeViewModel() -> HomeViewModel { return HomeViewModel(fetchPokemonListUseCase: fetchPokemonListUseCase) }
-    func makeProfileViewModel() -> ProfileViewModel { return ProfileViewModel() }
+    func makeProfileViewModel() -> ProfileViewModel { return ProfileViewModel(getFavoritesPokemonUseCase: getListFavoritesPokemonUseCase,
+                                                                              getCurrentUserUseCase: getCurrentUserUseCase) }
     func makeLoginViewModel() -> LoginViewModel { return LoginViewModel(loginUseCase: loginUseCase) }
     func makeRegisterViewModel() -> RegisterViewModel { return RegisterViewModel(registerUserUseCase: registerUserUseCase) }
     func makeDetailViewModel(selectedPokemon: PokemonListItem) -> DetailViewModel {
-        return DetailViewModel(selectedPokemon: selectedPokemon, fetchPokemonDetailUseCase: fetchPokemonDetailUseCase)
+        return DetailViewModel(selectedPokemon: selectedPokemon,
+                               fetchPokemonDetailUseCase: fetchPokemonDetailUseCase,
+                               addFavoritePokemonUseCase: addFavoritePokemonUseCase,
+                               removeFavoritePokemonUseCase: removeFavoritePokemonUseCase,
+                               isFavoritePokemonUseCase: isFavoritePokemonUseCase)
     }
     
 }

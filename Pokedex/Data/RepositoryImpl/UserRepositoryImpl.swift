@@ -9,14 +9,8 @@ import RealmSwift
 import RxSwift
 
 final class UserRepositoryImpl: UserRepositoryProtocol {
-//    private let realm: Realm
-    
-    // Realm
+    // Data Source
     private let localDataSource: UserLocalDataSourceProtocol
-    
-//    init(realm: Realm) {
-//        self.realm = realm
-//    }
     
     init(localDataSource: UserLocalDataSourceProtocol) {
         self.localDataSource = localDataSource
@@ -32,14 +26,26 @@ final class UserRepositoryImpl: UserRepositoryProtocol {
         return localDataSource.saveUser(realmUser)
     }
     
-    func getCurrentUser() -> User? {
-//        let currentUserId = UserDefaults.standard.string(forKey: "currentUserId")
-//        guard let id = currentUserId,
-//              let realmUser = realm.object(ofType: RealmUserObject.self, forPrimaryKey: id) else {
-//            return nil
-//        }
-//        return realmUser.toDomain()
-        return nil
+    func getCurrentUser() -> Observable<User?> {
+        return localDataSource.fetchLoggedInUser()
+    }
+    
+    func addFavoritePokemon(pokemon: PokemonDetail) -> Observable<Void> {
+        let favoritedPokemon = pokemon.toRealmFavoriteObject()
+        return localDataSource.addFavoritePokemon(favoritedPokemon)
+    }
+    
+    func isPokemonInFavorite(pokemonId: Int) -> Observable<Bool> {
+        return localDataSource.isPokemonInFavorite(pokemonId: pokemonId)
+    }
+    
+    func removeFavoritePokemon(pokemon: PokemonDetail) -> Observable<Void> {
+        let favoritedPokemon = pokemon.toRealmFavoriteObject()
+        return localDataSource.removeFavoritePokemon(favoritedPokemon)
+    }
+    
+    func getListFavoritePokemon() -> Observable<[RealmFavoritePokemonObject]> {
+        return localDataSource.getListFavoritePokemon()
     }
     
     func logout() {

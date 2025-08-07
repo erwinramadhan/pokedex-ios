@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Kingfisher
+import MBProgressHUD
 
 class DetailView: UIViewController {
     
@@ -25,9 +26,15 @@ class DetailView: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var statsStackView: UIStackView!
     @IBOutlet weak var baseStatsLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     var viewModel: DetailViewModel!
     var disposeBag: DisposeBag = DisposeBag()
+    
+    // Closure
+    var backButtonTapped: (() -> Void)?
+    
+    private let favoriteTap = PublishRelay<Void>()
     
     init(viewModel: DetailViewModel) {
         self.viewModel = viewModel
@@ -40,6 +47,7 @@ class DetailView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindingActionUI()
         bindingVM()
         setupUI()
         viewModel.fetchPokemonDetail()
@@ -48,6 +56,25 @@ class DetailView: UIViewController {
     func setupUI() {
         setupUIInformationView()
         setupUIImageView()
+        setupFavoriteButton()
+    }
+    
+    func setupFavoriteButton() {
+        favoriteButton.setImage(UIImage(systemName: "heart")?.withRenderingMode(.alwaysTemplate).withTintColor(UIColor(hex: "DC0A2D", alpha: 1.0)), for: .normal)
+        favoriteButton.setTitle("", for: .normal)
+        favoriteButton.setTitle("", for: .focused)
+        favoriteButton.setTitle("", for: .selected)
+        favoriteButton.tintColor = UIColor(hex: "DC0A2D", alpha: 1.0)
+        favoriteButton.backgroundColor = .clear
+        favoriteButton.layer.cornerRadius = favoriteButton.frame.height / 2
+        favoriteButton.layer.borderWidth = 1
+        favoriteButton.layer.borderColor = UIColor(hex: "DC0A2D", alpha: 1.0).cgColor
+        favoriteButton.clipsToBounds = true
+    }
+    
+    func updateFavoriteButton(isFavorite: Bool) {
+        let imageName = isFavorite ? "heart.fill" : "heart"
+        favoriteButton.setImage(UIImage(systemName: imageName)?.withRenderingMode(.alwaysTemplate).withTintColor(UIColor(hex: "DC0A2D", alpha: 1.0)), for: .normal)
     }
     
     func setupUIImageView() {
@@ -64,7 +91,49 @@ class DetailView: UIViewController {
         bindingVMToUI()
     }
     
+    func bindingActionUI() {
+        bindingActionTopAppBar()
+        bindingActionToFavoriteButton()
+    }
+    
+    func bindingActionToFavoriteButton() {
+        favoriteButton.rx.tap
+            .bind(to: favoriteTap)
+            .disposed(by: disposeBag)
+        
+        favoriteTap
+            .withLatestFrom(viewModel.isFavoritePokemonObserve)
+            .subscribe(onNext: { [weak self] isFavorite in
+                guard let self else { return }
+                if isFavorite {
+                    self.viewModel.removeFavorite()
+                } else {
+                    self.viewModel.addFavorite()
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func bindingActionTopAppBar() {
+        topAppBarView.backButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.backButtonTapped?()
+            })
+            .disposed(by: disposeBag)
+    }
+    
     func bindingVMToTopAppBar() {
+        // Is Favorite Pokemon
+        viewModel.isFavoritePokemonObserve
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onNext: { [weak self] isFavorite in
+                    guard let self else { return }
+                    updateFavoriteButton(isFavorite: isFavorite)
+                }
+            )
+            .disposed(by: disposeBag)
+        
         // Title
         viewModel.pokemonObserve
             .observe(on: MainScheduler.instance)
@@ -81,6 +150,21 @@ class DetailView: UIViewController {
     }
     
     func bindingVMToUI() {
+        // Loading
+        viewModel.isLoadingObserve
+            .observe(on: MainScheduler.instance)
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] isLoading in
+                guard let self else { return }
+                if isLoading {
+                    MBProgressHUD.showAdded(to: view, animated: true)
+                } else {
+                    MBProgressHUD.hide(for: view, animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        
         // Color
         viewModel.pokemonObserve
             .observe(on: MainScheduler.instance)

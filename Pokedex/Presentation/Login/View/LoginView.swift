@@ -7,12 +7,15 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class LoginView: UIViewController {
     
     @IBOutlet weak var formViewContainer: UIView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var trainerIDTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     var viewModel: LoginViewModel!
     let disposeBag = DisposeBag()
@@ -37,6 +40,23 @@ class LoginView: UIViewController {
         setupFormViewContainer()
         setupRegisterButton()
         setupLoginButton()
+        setupBindingTextFieldToVM()
+    }
+    
+    private func setupBindingTextFieldToVM() {
+        trainerIDTextField.rx.text
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] text in
+                self?.viewModel.trainerID.accept(text ?? "")
+            })
+            .disposed(by: disposeBag)
+        
+        passwordTextField.rx.text
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] text in
+                self?.viewModel.password.accept(text ?? "")
+            })
+            .disposed(by: disposeBag)
     }
     
     private func setupFormViewContainer() {
@@ -46,16 +66,19 @@ class LoginView: UIViewController {
     }
     
     private func setupRegisterButton() {
-        registerButton.addAction { [weak self] in
-            self?.navigateToRegister?()
-        }
+        loginButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.navigateToRegister?()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func setupLoginButton() {
-        loginButton.addAction { [weak self] in
-            guard let self else { return }
-            viewModel.login()
-        }
+        loginButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel.login()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func setupObserveVM() {

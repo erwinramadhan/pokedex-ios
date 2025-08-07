@@ -16,6 +16,7 @@
                 <outlet property="containerView" destination="EW4-3z-ePh" id="MlL-gJ-uju"/>
                 <outlet property="contentView" destination="kQ8-FG-UOm" id="pBa-bN-5fd"/>
                 <outlet property="descriptionLabel" destination="vgC-bk-gty" id="vi5-yV-XrL"/>
+                <outlet property="favoriteButton" destination="D3v-34-iah" id="SIF-DU-ltw"/>
                 <outlet property="heightValueLabel" destination="GNq-aX-5Cr" id="iw0-oR-vet"/>
                 <outlet property="imageView" destination="ALc-sz-pxj" id="lwQ-A8-Rgl"/>
                 <outlet property="informationView" destination="qAG-yH-xuL" id="3Ux-Xf-Jw4"/>
@@ -241,13 +242,19 @@
                                         <constraint firstAttribute="width" constant="200" id="v4I-WB-imv"/>
                                     </constraints>
                                 </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3v-34-iah">
+                                    <rect key="frame" x="344.33333333333331" y="111.99999999999999" width="28.666666666666686" height="34.333333333333329"/>
+                                    <buttonConfiguration key="configuration" style="plain" title=" "/>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
+                                <constraint firstItem="D3v-34-iah" firstAttribute="top" secondItem="qAG-yH-xuL" secondAttribute="top" constant="12" id="5th-VP-wa7"/>
                                 <constraint firstItem="ALc-sz-pxj" firstAttribute="centerX" secondItem="kQ8-FG-UOm" secondAttribute="centerX" id="HiN-sQ-9Wq"/>
                                 <constraint firstItem="qAG-yH-xuL" firstAttribute="leading" secondItem="kQ8-FG-UOm" secondAttribute="leading" constant="8" id="RjE-7W-7QN"/>
                                 <constraint firstItem="qAG-yH-xuL" firstAttribute="top" secondItem="ALc-sz-pxj" secondAttribute="bottom" constant="-100" id="cfe-ut-Rjs"/>
                                 <constraint firstAttribute="bottom" secondItem="qAG-yH-xuL" secondAttribute="bottom" id="fFS-ft-St4"/>
+                                <constraint firstItem="qAG-yH-xuL" firstAttribute="trailing" secondItem="D3v-34-iah" secondAttribute="trailing" constant="12" id="ig1-ta-bGu"/>
                                 <constraint firstItem="ALc-sz-pxj" firstAttribute="top" secondItem="kQ8-FG-UOm" secondAttribute="top" id="mZH-Zh-FdS"/>
                                 <constraint firstAttribute="trailing" secondItem="qAG-yH-xuL" secondAttribute="trailing" constant="8" id="vLD-lL-45F"/>
                             </constraints>

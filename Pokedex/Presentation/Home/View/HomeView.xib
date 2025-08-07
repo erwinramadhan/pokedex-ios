@@ -43,10 +43,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1v-HZ-6kb">
-                            <rect key="frame" x="8" y="74" width="377" height="703"/>
+                            <rect key="frame" x="8" y="74" width="377" height="685"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2Gj-C7-1la">
-                                    <rect key="frame" x="12" y="24" width="353" height="655"/>
+                                    <rect key="frame" x="12" y="24" width="353" height="637"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </tableView>
@@ -63,7 +63,7 @@
                     <color key="backgroundColor" red="0.86274509803921573" green="0.039215686274509803" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="Czh-jV-3Xb" firstAttribute="leading" secondItem="zSP-Ix-AU6" secondAttribute="leading" constant="16" id="LMG-Iq-HvQ"/>
-                        <constraint firstAttribute="bottom" secondItem="M1v-HZ-6kb" secondAttribute="bottom" constant="16" id="Zlm-q2-prb"/>
+                        <constraint firstAttribute="bottom" secondItem="M1v-HZ-6kb" secondAttribute="bottom" constant="34" id="Zlm-q2-prb"/>
                         <constraint firstItem="Czh-jV-3Xb" firstAttribute="bottom" secondItem="M1v-HZ-6kb" secondAttribute="top" constant="-24" id="Zqd-ca-gTn"/>
                         <constraint firstAttribute="trailing" secondItem="Czh-jV-3Xb" secondAttribute="trailing" constant="16" id="ebf-WN-Fcd"/>
                         <constraint firstItem="M1v-HZ-6kb" firstAttribute="leading" secondItem="zSP-Ix-AU6" secondAttribute="leading" constant="8" id="efo-Qw-2Yd"/>

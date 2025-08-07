@@ -12,7 +12,7 @@ class AppCoordinator: AppCoordinatorProtocol {
     private let window: UIWindow
     private let appDIContainer: AppDIContainer
     private let navigationController: UINavigationController
-    private let userRepository: UserRepositoryProtocol
+    private let getCurrentUserUseCase: GetCurrentUserUseCaseProtocol
     
     let disposeBag = DisposeBag()
     
@@ -20,24 +20,29 @@ class AppCoordinator: AppCoordinatorProtocol {
         self.window = window
         self.appDIContainer = appDIContainer
         self.navigationController = navigationController
-        self.userRepository = appDIContainer.makeUserRepository()
+        self.getCurrentUserUseCase = appDIContainer.makeGettCurrentUserUseCase()
     }
     
     func start() {
-        if let user = userRepository.getCurrentUser() {
-            print("✅ Logged in as: \(user.name)")
-            showLandingFlow()
-        } else {
-            print("🔒 No user logged in")
-            showLoginFlow()
-        }
+        getCurrentUserUseCase.execute()
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] user in
+                if let user {
+                    print("✅ Logged in as: \(user)")
+                    self?.showLandingFlow()
+                } else {
+                    print("🔒 No user logged in")
+                    self?.showLoginFlow()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: Show Flow
     private func showLoginFlow() {
         replaceToLoginView()
     }
-
+    
     private func showLandingFlow() {
         replaceToLandingView()
     }
@@ -46,9 +51,6 @@ class AppCoordinator: AppCoordinatorProtocol {
     private func createLandingPagerTabStripView() -> UIViewController {
         let landingPagerTabStripViewModel = LandingPagerTabStripViewModel()
         let homeView = createHomeView()
-        homeView.navigateToDetail = { [weak self] pokemon in
-            self?.navigateToDetail(pokemon: pokemon)
-        }
         
         let profileView = createProfileView()
         return LandingPagerTabStrip(viewModel: landingPagerTabStripViewModel, homeView: homeView, profileView: profileView)
@@ -57,12 +59,18 @@ class AppCoordinator: AppCoordinatorProtocol {
     private func createHomeView() -> HomeView {
         let homeViewModel = appDIContainer.makeHomeViewModel()
         let homeView = HomeView(viewModel: homeViewModel)
+        homeView.navigateToDetail = { [weak self] pokemon in
+            self?.navigateToDetail(pokemon: pokemon)
+        }
         return homeView
     }
     
     private func createProfileView() -> ProfileView {
         let profileViewModel = appDIContainer.makeProfileViewModel()
         let profileView = ProfileView(viewModel: profileViewModel)
+        profileView.navigateToDetail = { [weak self] pokemon in
+            self?.navigateToDetail(pokemon: pokemon)
+        }
         return profileView
     }
     
@@ -94,6 +102,12 @@ class AppCoordinator: AppCoordinatorProtocol {
     private func createDetailView(selectedPokemon: PokemonListItem) -> DetailView {
         let detailViewModel = appDIContainer.makeDetailViewModel(selectedPokemon: selectedPokemon)
         let detailView = DetailView(viewModel: detailViewModel)
+        
+        // Assign closure
+        detailView.backButtonTapped = { [weak self] in
+            self?.navigationController.popViewController(animated: true)
+        }
+        
         return detailView
     }
     

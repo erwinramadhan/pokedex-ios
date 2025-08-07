@@ -19,7 +19,6 @@
 		5D4407D12E42043D00E464FA /* PokemonSpeciesResponseDTO+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4407D02E42043500E464FA /* PokemonSpeciesResponseDTO+ext.swift */; };
 		5D4407D52E42547D00E464FA /* TopAppBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D4407D42E42547D00E464FA /* TopAppBarView.xib */; };
 		5D4407D62E42547D00E464FA /* TopAppBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4407D32E42547D00E464FA /* TopAppBarView.swift */; };
-		5D4407D82E4258F300E464FA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4407D72E4258F000E464FA /* UIView.swift */; };
 		5D4407DB2E42690000E464FA /* PokemonColorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4407DA2E4268F700E464FA /* PokemonColorMapper.swift */; };
 		5D4407DD2E42750200E464FA /* PokemonTypeColorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4407DC2E4274FD00E464FA /* PokemonTypeColorMapper.swift */; };
 		5D4407E02E4281D900E464FA /* PokemonStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4407DF2E4281D300E464FA /* PokemonStatView.swift */; };
@@ -69,6 +68,10 @@
 		5D8CA9632E41277D008AD8EC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8CA9622E41277B008AD8EC /* UIColor.swift */; };
 		5D8CA9672E412ABF008AD8EC /* PokemonCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8CA9662E412ABF008AD8EC /* PokemonCardCell.xib */; };
 		5D8CA9682E412ABF008AD8EC /* PokemonCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8CA9652E412ABF008AD8EC /* PokemonCardCell.swift */; };
+		5D9139C52E4502CD002AA174 /* IsFavoritePokemonUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9139C42E4502C3002AA174 /* IsFavoritePokemonUseCase.swift */; };
+		5D9139C72E45034D002AA174 /* RemoveFavoritePokemonUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9139C62E450346002AA174 /* RemoveFavoritePokemonUseCase.swift */; };
+		5D9139C92E4513F1002AA174 /* GetFavoritesPokemonUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9139C82E4513E8002AA174 /* GetFavoritesPokemonUseCase.swift */; };
+		5D9CC2F52E44F3CC00C6BE6B /* AddFavoritePokemonUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9CC2F42E44F3BC00C6BE6B /* AddFavoritePokemonUseCase.swift */; };
 		5DC3628D2E3F6EA3004F1BF2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3628C2E3F6EA3004F1BF2 /* main.swift */; };
 		5DC3628F2E3F6ECB004F1BF2 /* MainApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3628E2E3F6ECB004F1BF2 /* MainApplication.swift */; };
 		5DC362912E3F7218004F1BF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DC362902E3F7218004F1BF2 /* Assets.xcassets */; };
@@ -91,7 +94,6 @@
 		5D4407D02E42043500E464FA /* PokemonSpeciesResponseDTO+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PokemonSpeciesResponseDTO+ext.swift"; sourceTree = "<group>"; };
 		5D4407D32E42547D00E464FA /* TopAppBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAppBarView.swift; sourceTree = "<group>"; };
 		5D4407D42E42547D00E464FA /* TopAppBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopAppBarView.xib; sourceTree = "<group>"; };
-		5D4407D72E4258F000E464FA /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5D4407DA2E4268F700E464FA /* PokemonColorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonColorMapper.swift; sourceTree = "<group>"; };
 		5D4407DC2E4274FD00E464FA /* PokemonTypeColorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypeColorMapper.swift; sourceTree = "<group>"; };
 		5D4407DF2E4281D300E464FA /* PokemonStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,10 @@
 		5D8CA9622E41277B008AD8EC /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5D8CA9652E412ABF008AD8EC /* PokemonCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCardCell.swift; sourceTree = "<group>"; };
 		5D8CA9662E412ABF008AD8EC /* PokemonCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonCardCell.xib; sourceTree = "<group>"; };
+		5D9139C42E4502C3002AA174 /* IsFavoritePokemonUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsFavoritePokemonUseCase.swift; sourceTree = "<group>"; };
+		5D9139C62E450346002AA174 /* RemoveFavoritePokemonUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFavoritePokemonUseCase.swift; sourceTree = "<group>"; };
+		5D9139C82E4513E8002AA174 /* GetFavoritesPokemonUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesPokemonUseCase.swift; sourceTree = "<group>"; };
+		5D9CC2F42E44F3BC00C6BE6B /* AddFavoritePokemonUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoritePokemonUseCase.swift; sourceTree = "<group>"; };
 		5DC3628C2E3F6EA3004F1BF2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5DC3628E2E3F6ECB004F1BF2 /* MainApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApplication.swift; sourceTree = "<group>"; };
 		5DC362902E3F7218004F1BF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -350,7 +356,6 @@
 		5D56ECD22E3F767900E21B98 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5D4407D72E4258F000E464FA /* UIView.swift */,
 				5D8CA9622E41277B008AD8EC /* UIColor.swift */,
 			);
 			path = Extensions;
@@ -377,6 +382,10 @@
 		5D56ECE32E3F861900E21B98 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				5D9139C82E4513E8002AA174 /* GetFavoritesPokemonUseCase.swift */,
+				5D9139C62E450346002AA174 /* RemoveFavoritePokemonUseCase.swift */,
+				5D9139C42E4502C3002AA174 /* IsFavoritePokemonUseCase.swift */,
+				5D9CC2F42E44F3BC00C6BE6B /* AddFavoritePokemonUseCase.swift */,
 				5D4407F12E4381CF00E464FA /* RegisterUserUseCase.swift */,
 				5D4407ED2E43448300E464FA /* GetCurrentUserUseCase.swift */,
 				5D4407EB2E433BB500E464FA /* LoginUseCase.swift */,
@@ -788,8 +797,9 @@
 				5D56ECFF2E3F909E00E21B98 /* HomeView.swift in Sources */,
 				5D4407D12E42043D00E464FA /* PokemonSpeciesResponseDTO+ext.swift in Sources */,
 				5D56ED452E3FECFB00E21B98 /* AppDIContainer.swift in Sources */,
-				5D4407D82E4258F300E464FA /* UIView.swift in Sources */,
 				5D4407E52E4312DF00E464FA /* PasswordHasher.swift in Sources */,
+				5D9139C52E4502CD002AA174 /* IsFavoritePokemonUseCase.swift in Sources */,
+				5D9CC2F52E44F3CC00C6BE6B /* AddFavoritePokemonUseCase.swift in Sources */,
 				5D4407DB2E42690000E464FA /* PokemonColorMapper.swift in Sources */,
 				D11F1A2DD3E64C58CA69B398 /* SceneDelegate.swift in Sources */,
 				5D56ED152E3FC52D00E21B98 /* APIClientImpl.swift in Sources */,
@@ -800,6 +810,7 @@
 				5D4407CB2E41F40400E464FA /* FetchPokemonDetailUseCase.swift in Sources */,
 				5D4407C92E41E9CD00E464FA /* PokemonDetail.swift in Sources */,
 				5D56ED402E3FE64A00E21B98 /* PokemonListResponseDTO+ext.swift in Sources */,
+				5D9139C72E45034D002AA174 /* RemoveFavoritePokemonUseCase.swift in Sources */,
 				5D4407EA2E43360700E464FA /* FavoritePokemon.swift in Sources */,
 				5D8CA9632E41277D008AD8EC /* UIColor.swift in Sources */,
 				5D56ECEE2E3F872300E21B98 /* RealmManager.swift in Sources */,
@@ -810,6 +821,7 @@
 				5DC3628D2E3F6EA3004F1BF2 /* main.swift in Sources */,
 				5D56ECF52E3F892D00E21B98 /* LoginViewModel.swift in Sources */,
 				5D56ED262E3FC75300E21B98 /* FetchPokemonListUseCase.swift in Sources */,
+				5D9139C92E4513F1002AA174 /* GetFavoritesPokemonUseCase.swift in Sources */,
 				5D8CA95E2E40A6DB008AD8EC /* BaseCoordinatorProtocol.swift in Sources */,
 				5D56ECF82E3F8FC500E21B98 /* RegisterViewModel.swift in Sources */,
 				5D56ECE22E3F860A00E21B98 /* User.swift in Sources */,

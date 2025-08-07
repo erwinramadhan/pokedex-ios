@@ -13,7 +13,9 @@
             <connections>
                 <outlet property="formViewContainer" destination="RWB-hY-QaG" id="oyd-ZD-17Q"/>
                 <outlet property="loginButton" destination="mE1-rB-27L" id="Sa2-nd-X2Z"/>
+                <outlet property="passwordTextField" destination="wwV-83-V9r" id="Roy-yi-uff"/>
                 <outlet property="registerButton" destination="8q1-Ua-gFb" id="3wU-u9-RdY"/>
+                <outlet property="trainerIDTextField" destination="2Qq-uQ-3ad" id="VmJ-nU-mba"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

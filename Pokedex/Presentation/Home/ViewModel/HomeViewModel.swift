@@ -32,6 +32,7 @@ class HomeViewModel: AnyObject {
     // MARK: Observeable Properties
     var pokemonObserve: Observable<[PokemonListItem]> {
         return Observable.combineLatest(pokemons, searchValue)
+            .observe(on: MainScheduler.instance)
             .map { pokemons, query in
                 guard !query.isEmpty else { return pokemons }
                 return pokemons.filter { $0.name.lowercased().contains(query.lowercased()) }

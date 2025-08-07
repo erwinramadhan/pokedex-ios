@@ -38,3 +38,13 @@ struct PokemonStat {
     let effort: Int
 }
 
+extension PokemonDetail {
+    func toRealmFavoriteObject() -> RealmFavoritePokemonObject {
+        let realmObject = RealmFavoritePokemonObject()
+        realmObject.id = self.id
+        realmObject.name = self.name
+        realmObject.imageUrl = self.imageURL ?? ""
+        return realmObject
+    }
+}
+

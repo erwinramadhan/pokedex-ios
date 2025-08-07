@@ -5,8 +5,11 @@
 //  Created by Erwin Ramadhan Edwar Putra on 06/08/25.
 //
 
+import Foundation
+import RxSwift
+
 protocol GetCurrentUserUseCaseProtocol {
-    func execute() -> User?
+    func execute() -> Observable<User?>
 }
 
 class GetCurrentUserUseCaseImpl: GetCurrentUserUseCaseProtocol {
@@ -17,7 +20,7 @@ class GetCurrentUserUseCaseImpl: GetCurrentUserUseCaseProtocol {
         self.repository = repository
     }
     
-    func execute() -> User? {
+    func execute() -> Observable<User?> {
         return repository.getCurrentUser()
     }
 }
